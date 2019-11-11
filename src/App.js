@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [recount, setRecount] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>count : {count}</div>
+      <div>recount: {recount}</div>
+      <button
+        onClick={() => {
+          console.log('before: ', count);
+          setCount(count + 1);
+          console.log('after: ', count);
+          setCount(count + 1);
+        }}>
+        Increment
+      </button>
+      <button
+        onClick={() => {
+          setRecount(recount => recount + 1);
+          setRecount(recount => recount + 1);
+        }}>
+        Increment
+      </button>
     </div>
   );
 }
